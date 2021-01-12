@@ -71,38 +71,7 @@ namespace MyPocketbook.Views
             ClearText();
         }
 
-        void StoreDatabase()
-        {
-            //temp.Expense.Clear();
-            temp.Expense.AddExpenseRow(this.txtExpName.Text, this.txtExpAmount.Text,
-                this.txtExpCategory.Text, this.txtExpDate.Text, this.txtExpDescription.Text);
-
-            //Store data into file
-            try
-            {
-                temp.WriteXml(@"D:\Database\TempData.xml");
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                Console.WriteLine("Directory not found: " + ex.Message);
-                temp.WriteXml(@"D:\TempData.xml");
-            }
-            
-            //Forward data to database
-            MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
-            Expense dataExpense = new Expense();
-            User userdata = new User();
-            dataExpense.UserId = LoginView.forwardUserID;
-            dataExpense.Name = this.txtExpName.Text;
-            dataExpense.Amount = this.txtExpAmount.Text;
-            dataExpense.Category = this.txtExpCategory.Text;
-            dataExpense.Date = this.txtExpDate.Text;
-            dataExpense.Description = this.txtExpDescription.Text;
-            userdata.Expenses.Add(dataExpense);
-            database.Expenses.Add(dataExpense);
-            database.SaveChanges();
-        }
-
+        // Clear text feild
         void ClearText()
         {
             this.txtExpName.Text = this.txtExpAmount.Text = this.txtExpDescription.Text = "";
