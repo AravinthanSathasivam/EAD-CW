@@ -51,7 +51,7 @@ namespace MyPocketbook.Views
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridExpense)).BeginInit();
             this.SuspendLayout();
@@ -233,22 +233,22 @@ namespace MyPocketbook.Views
             // 
             this.dataGridExpense.AllowUserToDeleteRows = false;
             this.dataGridExpense.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(238)))), ((int)(((byte)(218)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(204)))), ((int)(((byte)(112)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridExpense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridExpense.ColumnHeadersHeight = 50;
+            this.dataGridExpense.ColumnHeadersHeight = 40;
             this.dataGridExpense.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ExpenseName,
             this.Category,
             this.Amount,
             this.Date,
             this.Description,
-            this.UserId});
+            this.Id});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -262,9 +262,10 @@ namespace MyPocketbook.Views
             this.dataGridExpense.ReadOnly = true;
             this.dataGridExpense.RowHeadersVisible = false;
             this.dataGridExpense.RowHeadersWidth = 10;
-            this.dataGridExpense.RowTemplate.Height = 30;
+            this.dataGridExpense.RowTemplate.Height = 40;
             this.dataGridExpense.Size = new System.Drawing.Size(838, 542);
             this.dataGridExpense.TabIndex = 10;
+            this.dataGridExpense.DoubleClick += new System.EventHandler(this.dataGridExpense_DoubleClick);
             // 
             // ExpenseName
             // 
@@ -311,15 +312,15 @@ namespace MyPocketbook.Views
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             // 
-            // UserId
+            // Id
             // 
-            this.UserId.DataPropertyName = "UserId";
-            this.UserId.HeaderText = "UserId";
-            this.UserId.MinimumWidth = 6;
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            this.UserId.Visible = false;
-            this.UserId.Width = 125;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 125;
             // 
             // DisplayExpenseData
             // 
@@ -363,6 +364,6 @@ namespace MyPocketbook.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }
