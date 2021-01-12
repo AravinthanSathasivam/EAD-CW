@@ -18,3 +18,6 @@ D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.csproj.
 D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.exe
 D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.pdb
 D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.csprojAssemblyReference.cache
+D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.Views.DisplayExpenseData.resources
+D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.Views.DisplayIncomeData.resources
+D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.Views.MultipleExpenseEntryView.resources

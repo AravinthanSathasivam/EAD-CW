@@ -115,6 +115,21 @@ namespace MyPocketbook.Views
             pnlNavbar.Top = btnReport.Top;
             pnlNavbar.Left = btnReport.Left;
             btnReport.BackColor = Color.FromArgb(255, 255, 255);
+
+            //View Report Form
+            MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+
+            if (!database.Incomes.Any() && !database.Expenses.Any())
+            {
+                ReportView report = new ReportView();
+                report.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please Enter Income And Expense Data");
+            }
+            
+
         }
 
         private void OpenPrediction(object sender, EventArgs e)

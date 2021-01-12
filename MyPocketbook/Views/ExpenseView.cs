@@ -51,11 +51,11 @@ namespace MyPocketbook.Views
             Expense dataExpense = new Expense();
             User userdata = new User();
             dataExpense.UserId = LoginView.forwardUserID;
-            dataExpense.Name = this.txtExpName.Text;
-            dataExpense.Amount = this.txtExpAmount.Text;
-            dataExpense.Category = this.txtExpCategory.Text;
-            dataExpense.Date = this.txtExpDate.Text;
-            dataExpense.Description = this.txtExpDescription.Text;
+            dataExpense.Name = this.txtExpName.Text.Trim();
+            dataExpense.Amount = this.txtExpAmount.Text.Trim();
+            dataExpense.Category = this.txtExpCategory.Text.Trim();
+            dataExpense.Date = this.txtExpDate.Text.Trim();
+            dataExpense.Description = this.txtExpDescription.Text.Trim();
             // Using thread - Task
             var taskStoreDB = await Task.Run(
                 () =>
@@ -69,6 +69,34 @@ namespace MyPocketbook.Views
             MessageBox.Show(" Entry Saved Successfully");
             this.btnAddExpense.Enabled = true;
             ClearText();
+        }
+
+        //Display Expense Data
+        private void DisplayExpenseData(object sender, EventArgs e)
+        {
+            using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
+            {
+                Console.WriteLine(!database.Expenses.Any());
+                // Checking the Expense Table is empty or not
+                if (!database.Expenses.Any())
+                {
+                    MessageBox.Show("No Expense Data to display \n Enter Expense Data");
+                }
+                else
+                {
+                    DisplayExpenseData displayExpense = new DisplayExpenseData();
+                    displayExpense.ShowDialog();
+                    
+                }
+
+            }
+        }
+
+        //Open Multi-Expense Data Entry View
+        private void AddMultiExpense(object sender, EventArgs e)
+        {
+            MultipleExpenseEntryView multipleExpenseEntry = new MultipleExpenseEntryView();
+            multipleExpenseEntry.ShowDialog();
         }
 
         // Clear text feild

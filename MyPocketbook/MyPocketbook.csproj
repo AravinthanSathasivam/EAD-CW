@@ -92,6 +92,18 @@
     <Compile Include="Views\Dashbord.Designer.cs">
       <DependentUpon>Dashbord.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DisplayExpenseData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DisplayExpenseData.Designer.cs">
+      <DependentUpon>DisplayExpenseData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DisplayIncomeData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DisplayIncomeData.Designer.cs">
+      <DependentUpon>DisplayIncomeData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExpensePrediction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +134,12 @@
     <Compile Include="Views\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MultipleExpenseEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MultipleExpenseEntryView.Designer.cs">
+      <DependentUpon>MultipleExpenseEntryView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +165,12 @@
     <EmbeddedResource Include="Views\Dashbord.resx">
       <DependentUpon>Dashbord.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DisplayExpenseData.resx">
+      <DependentUpon>DisplayExpenseData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DisplayIncomeData.resx">
+      <DependentUpon>DisplayIncomeData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ExpenseView.resx">
       <DependentUpon>ExpenseView.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MultipleExpenseEntryView.resx">
+      <DependentUpon>MultipleExpenseEntryView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SignupView.resx">
       <DependentUpon>SignupView.cs</DependentUpon>
@@ -281,6 +308,9 @@
       <LastGenOutput>MyPocketbookModel.cs</LastGenOutput>
       <DependentUpon>MyPocketbookModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\edit-32.png" />
+    <None Include="Resources\delete-32.png" />
+    <None Include="Resources\delete-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,15 +34,16 @@ namespace MyPocketbook.Views
             this.lblExpenseName = new System.Windows.Forms.Label();
             this.txtExpName = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.lblAmount = new System.Windows.Forms.Label();
-            this.txtExpAmount = new System.Windows.Forms.TextBox();
-            this.lblCatagory = new System.Windows.Forms.Label();
+            this.btnAddExpense = new System.Windows.Forms.Button();
+            this.txtExpDate = new System.Windows.Forms.DateTimePicker();
             this.txtExpCategory = new System.Windows.Forms.ComboBox();
             this.lblDate = new System.Windows.Forms.Label();
-            this.txtExpDate = new System.Windows.Forms.DateTimePicker();
-            this.btnAddExpense = new System.Windows.Forms.Button();
-            this.lblDescription = new System.Windows.Forms.Label();
+            this.txtExpAmount = new System.Windows.Forms.TextBox();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblCatagory = new System.Windows.Forms.Label();
             this.txtExpDescription = new System.Windows.Forms.TextBox();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.btnMultiExpense = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +73,7 @@ namespace MyPocketbook.Views
             this.btnViewExpense.TabIndex = 4;
             this.btnViewExpense.Text = "View Expense";
             this.btnViewExpense.UseVisualStyleBackColor = false;
+            this.btnViewExpense.Click += new System.EventHandler(this.DisplayExpenseData);
             // 
             // lblExpenseName
             // 
@@ -112,36 +114,31 @@ namespace MyPocketbook.Views
             this.panel5.Size = new System.Drawing.Size(773, 385);
             this.panel5.TabIndex = 7;
             // 
-            // lblAmount
+            // btnAddExpense
             // 
-            this.lblAmount.AutoSize = true;
-            this.lblAmount.BackColor = System.Drawing.Color.Transparent;
-            this.lblAmount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmount.Location = new System.Drawing.Point(459, 24);
-            this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(83, 28);
-            this.lblAmount.TabIndex = 5;
-            this.lblAmount.Text = "Amount";
+            this.btnAddExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(204)))), ((int)(((byte)(112)))));
+            this.btnAddExpense.FlatAppearance.BorderSize = 0;
+            this.btnAddExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddExpense.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddExpense.ForeColor = System.Drawing.Color.White;
+            this.btnAddExpense.Location = new System.Drawing.Point(584, 301);
+            this.btnAddExpense.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddExpense.Name = "btnAddExpense";
+            this.btnAddExpense.Size = new System.Drawing.Size(163, 49);
+            this.btnAddExpense.TabIndex = 8;
+            this.btnAddExpense.Text = "Add";
+            this.btnAddExpense.UseVisualStyleBackColor = false;
+            this.btnAddExpense.Click += new System.EventHandler(this.AddExpense);
             // 
-            // txtExpAmount
+            // txtExpDate
             // 
-            this.txtExpAmount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpAmount.Location = new System.Drawing.Point(464, 55);
-            this.txtExpAmount.Name = "txtExpAmount";
-            this.txtExpAmount.Size = new System.Drawing.Size(283, 34);
-            this.txtExpAmount.TabIndex = 6;
-            this.txtExpAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountValidation);
-            // 
-            // lblCatagory
-            // 
-            this.lblCatagory.AutoSize = true;
-            this.lblCatagory.BackColor = System.Drawing.Color.Transparent;
-            this.lblCatagory.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatagory.Location = new System.Drawing.Point(21, 117);
-            this.lblCatagory.Name = "lblCatagory";
-            this.lblCatagory.Size = new System.Drawing.Size(93, 28);
-            this.lblCatagory.TabIndex = 5;
-            this.lblCatagory.Text = "Catagory";
+            this.txtExpDate.CustomFormat = "dd-MM-yyyy";
+            this.txtExpDate.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtExpDate.Location = new System.Drawing.Point(464, 150);
+            this.txtExpDate.Name = "txtExpDate";
+            this.txtExpDate.Size = new System.Drawing.Size(283, 34);
+            this.txtExpDate.TabIndex = 8;
             // 
             // txtExpCategory
             // 
@@ -164,31 +161,45 @@ namespace MyPocketbook.Views
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "Date";
             // 
-            // txtExpDate
+            // txtExpAmount
             // 
-            this.txtExpDate.CustomFormat = "dd-MM-yyyy";
-            this.txtExpDate.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtExpDate.Location = new System.Drawing.Point(464, 150);
-            this.txtExpDate.Name = "txtExpDate";
-            this.txtExpDate.Size = new System.Drawing.Size(283, 34);
-            this.txtExpDate.TabIndex = 8;
+            this.txtExpAmount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExpAmount.Location = new System.Drawing.Point(464, 55);
+            this.txtExpAmount.Name = "txtExpAmount";
+            this.txtExpAmount.Size = new System.Drawing.Size(283, 34);
+            this.txtExpAmount.TabIndex = 6;
+            this.txtExpAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountValidation);
             // 
-            // btnAddExpense
+            // lblAmount
             // 
-            this.btnAddExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(204)))), ((int)(((byte)(112)))));
-            this.btnAddExpense.FlatAppearance.BorderSize = 0;
-            this.btnAddExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddExpense.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddExpense.ForeColor = System.Drawing.Color.White;
-            this.btnAddExpense.Location = new System.Drawing.Point(584, 301);
-            this.btnAddExpense.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddExpense.Name = "btnAddExpense";
-            this.btnAddExpense.Size = new System.Drawing.Size(163, 49);
-            this.btnAddExpense.TabIndex = 8;
-            this.btnAddExpense.Text = "Add";
-            this.btnAddExpense.UseVisualStyleBackColor = false;
-            this.btnAddExpense.Click += new System.EventHandler(this.AddExpense);
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.BackColor = System.Drawing.Color.Transparent;
+            this.lblAmount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmount.Location = new System.Drawing.Point(459, 24);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(83, 28);
+            this.lblAmount.TabIndex = 5;
+            this.lblAmount.Text = "Amount";
+            // 
+            // lblCatagory
+            // 
+            this.lblCatagory.AutoSize = true;
+            this.lblCatagory.BackColor = System.Drawing.Color.Transparent;
+            this.lblCatagory.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatagory.Location = new System.Drawing.Point(21, 117);
+            this.lblCatagory.Name = "lblCatagory";
+            this.lblCatagory.Size = new System.Drawing.Size(93, 28);
+            this.lblCatagory.TabIndex = 5;
+            this.lblCatagory.Text = "Catagory";
+            // 
+            // txtExpDescription
+            // 
+            this.txtExpDescription.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExpDescription.Location = new System.Drawing.Point(26, 241);
+            this.txtExpDescription.Multiline = true;
+            this.txtExpDescription.Name = "txtExpDescription";
+            this.txtExpDescription.Size = new System.Drawing.Size(330, 109);
+            this.txtExpDescription.TabIndex = 6;
             // 
             // lblDescription
             // 
@@ -201,14 +212,21 @@ namespace MyPocketbook.Views
             this.lblDescription.TabIndex = 5;
             this.lblDescription.Text = "Description";
             // 
-            // txtExpDescription
+            // btnMultiExpense
             // 
-            this.txtExpDescription.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpDescription.Location = new System.Drawing.Point(26, 241);
-            this.txtExpDescription.Multiline = true;
-            this.txtExpDescription.Name = "txtExpDescription";
-            this.txtExpDescription.Size = new System.Drawing.Size(330, 109);
-            this.txtExpDescription.TabIndex = 6;
+            this.btnMultiExpense.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(204)))), ((int)(((byte)(112)))));
+            this.btnMultiExpense.FlatAppearance.BorderSize = 0;
+            this.btnMultiExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMultiExpense.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMultiExpense.ForeColor = System.Drawing.Color.White;
+            this.btnMultiExpense.Location = new System.Drawing.Point(422, 15);
+            this.btnMultiExpense.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMultiExpense.Name = "btnMultiExpense";
+            this.btnMultiExpense.Size = new System.Drawing.Size(193, 49);
+            this.btnMultiExpense.TabIndex = 4;
+            this.btnMultiExpense.Text = "Add Multiple Expense";
+            this.btnMultiExpense.UseVisualStyleBackColor = false;
+            this.btnMultiExpense.Click += new System.EventHandler(this.AddMultiExpense);
             // 
             // ExpenseView
             // 
@@ -216,11 +234,12 @@ namespace MyPocketbook.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(853, 542);
+            this.Controls.Add(this.btnMultiExpense);
             this.Controls.Add(this.btnViewExpense);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ExpenseView";
             this.Text = "ExpenseView";
             this.Load += new System.EventHandler(this.ExpenseView_Load);
@@ -247,5 +266,6 @@ namespace MyPocketbook.Views
         private System.Windows.Forms.Button btnAddExpense;
         private System.Windows.Forms.TextBox txtExpDescription;
         private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Button btnMultiExpense;
     }
 }
