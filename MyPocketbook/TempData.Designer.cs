@@ -949,6 +949,8 @@ namespace MyPocketbook {
             
             private global::System.Data.DataColumn columnDate;
             
+            private global::System.Data.DataColumn columnDescription;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public IncomeDataTable() {
@@ -1016,6 +1018,14 @@ namespace MyPocketbook {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DescriptionColumn {
+                get {
+                    return this.columnDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1051,13 +1061,14 @@ namespace MyPocketbook {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public IncomeRow AddIncomeRow(string Name, string Amount, string Category, string Date) {
+            public IncomeRow AddIncomeRow(string Name, string Amount, string Category, string Date, string Description) {
                 IncomeRow rowIncomeRow = ((IncomeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
                         Amount,
                         Category,
-                        Date};
+                        Date,
+                        Description};
                 rowIncomeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIncomeRow);
                 return rowIncomeRow;
@@ -1084,6 +1095,7 @@ namespace MyPocketbook {
                 this.columnAmount = base.Columns["Amount"];
                 this.columnCategory = base.Columns["Category"];
                 this.columnDate = base.Columns["Date"];
+                this.columnDescription = base.Columns["Description"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1097,6 +1109,8 @@ namespace MyPocketbook {
                 base.Columns.Add(this.columnCategory);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1585,6 +1599,22 @@ namespace MyPocketbook {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Description {
+                get {
+                    try {
+                        return ((string)(this[this.tableIncome.DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Income\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIncome.DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableIncome.NameColumn);
             }
@@ -1629,6 +1659,18 @@ namespace MyPocketbook {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDateNull() {
                 this[this.tableIncome.DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tableIncome.DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDescriptionNull() {
+                this[this.tableIncome.DescriptionColumn] = global::System.Convert.DBNull;
             }
         }
         

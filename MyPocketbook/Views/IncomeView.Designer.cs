@@ -60,6 +60,7 @@ namespace MyPocketbook.Views
             this.btnViewIncome.TabIndex = 9;
             this.btnViewIncome.Text = "View Income";
             this.btnViewIncome.UseVisualStyleBackColor = false;
+            this.btnViewIncome.Click += new System.EventHandler(this.DisplayIncomeData);
             // 
             // label1
             // 
@@ -107,6 +108,7 @@ namespace MyPocketbook.Views
             this.btnAddIncome.TabIndex = 8;
             this.btnAddIncome.Text = "Add";
             this.btnAddIncome.UseVisualStyleBackColor = false;
+            this.btnAddIncome.Click += new System.EventHandler(this.AddIncome);
             // 
             // txtIncDate
             // 
@@ -145,6 +147,7 @@ namespace MyPocketbook.Views
             this.txtIncAmount.Name = "txtIncAmount";
             this.txtIncAmount.Size = new System.Drawing.Size(283, 34);
             this.txtIncAmount.TabIndex = 6;
+            this.txtIncAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountValidation);
             // 
             // lblAmount
             // 
@@ -217,9 +220,10 @@ namespace MyPocketbook.Views
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "IncomeView";
             this.Text = "IncomeView";
+            this.Load += new System.EventHandler(this.IncomeView_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);

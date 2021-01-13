@@ -101,21 +101,30 @@ namespace MyPocketbook.Views
         //Display Expense Data
         private void DisplayExpenseData(object sender, EventArgs e)
         {
-            using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
+            try
             {
-                Console.WriteLine(!database.Expenses.Any());
-                // Checking the Expense Table is empty or not
-                if (!database.Expenses.Any())
+                using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
                 {
-                    MessageBox.Show("No Expense Data to display \n Enter Expense Data");
-                }
-                else
-                {
-                    DisplayExpenseData displayExpense = new DisplayExpenseData();
-                    displayExpense.ShowDialog();
-                    
+                    Console.WriteLine(!database.Expenses.Any());
+                    // Checking the Expense Table is empty or not
+                    if (!database.Expenses.Any())
+                    {
+                        MessageBox.Show("No Expense Data to display \n Enter Expense Data");
+                    }
+                    else
+                    {
+                        DisplayExpenseData displayExpense = new DisplayExpenseData();
+                        displayExpense.ShowDialog();
+
+                    }
+
                 }
 
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Database Error");
             }
         }
 
