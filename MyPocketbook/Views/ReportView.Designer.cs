@@ -31,6 +31,7 @@ namespace MyPocketbook.Views
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.test = new MyPocketbook.test();
             this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -41,6 +42,7 @@ namespace MyPocketbook.Views
             this.incomesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.expensesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expensesTableAdapter = new MyPocketbook.testTableAdapters.ExpensesTableAdapter();
+            this.incomesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.test)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempData)).BeginInit();
@@ -48,19 +50,22 @@ namespace MyPocketbook.Views
             ((System.ComponentModel.ISupportInitialize)(this.expenseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expensesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.expensesBindingSource;
+            reportDataSource2.Name = "DataSet2";
+            reportDataSource2.Value = this.incomesBindingSource2;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "MyPocketbook.Report.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(914, 527);
+            this.reportViewer1.Size = new System.Drawing.Size(911, 607);
             this.reportViewer1.TabIndex = 0;
             // 
             // test
@@ -106,11 +111,17 @@ namespace MyPocketbook.Views
             // 
             this.expensesTableAdapter.ClearBeforeFill = true;
             // 
+            // incomesBindingSource2
+            // 
+            this.incomesBindingSource2.DataMember = "Incomes";
+            this.incomesBindingSource2.DataSource = this.test;
+            // 
             // ReportView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 527);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(945, 631);
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReportView";
             this.Text = "ReportView";
@@ -122,6 +133,7 @@ namespace MyPocketbook.Views
             ((System.ComponentModel.ISupportInitialize)(this.expenseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expensesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -138,5 +150,6 @@ namespace MyPocketbook.Views
         private System.Windows.Forms.BindingSource incomesBindingSource1;
         private System.Windows.Forms.BindingSource expensesBindingSource;
         private testTableAdapters.ExpensesTableAdapter expensesTableAdapter;
+        private System.Windows.Forms.BindingSource incomesBindingSource2;
     }
 }

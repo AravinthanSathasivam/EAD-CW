@@ -33,15 +33,45 @@ namespace MyPocketbook.Views
 
         private void CreateAccount(object sender, EventArgs e)
         {
-            StoreDatabase();
-            MessageBox.Show(" Created An Account Successfully !!", "Info",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Hide();
-            LoginView loginView = new LoginView();
-            loginView.ShowDialog();
-            this.Close();
+            MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+
+            if (this.txtUserID.Text != "User Name" || this.txtFirstName.Text != "First Name" ||
+                this.txtLastName.Text != "Last Name" || this.txtPassword.Text != "Password")
+            {
+                if (this.txtUserID.Text != " " || this.txtFirstName.Text != " "
+                    || this.txtLastName.Text != " " ||
+                   this.txtPassword.Text != " ")
+                {
+                    if (txtPassword.Text == txtRePassword.Text){
+                        StoreDatabase();
+                        MessageBox.Show(" Created An Account Successfully !!", "Info",
+                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                        LoginView loginView = new LoginView();
+                        loginView.ShowDialog();
+                        this.Close();
+                    }
+                    else{
+                        MessageBox.Show(" Re-type password not matching, try again", "Info",
+                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    }
+                else{
+                    MessageBox.Show("Please Enter Valid Data", "Info",
+                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+                }
+            else{
+                MessageBox.Show("Please Enter Valid Data", "Info",
+                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            }
            
-        }
+
 
         void StoreDatabase()
         {
@@ -49,7 +79,7 @@ namespace MyPocketbook.Views
                 this.txtFirstName.Text, this.txtLastName.Text);
 
             //Store data into file
-            temp.WriteXml(@"D:\Database\TempData.xml");
+            temp.WriteXml(@"D:\TempUserData.xml");
 
             //Forward data to database
             MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
@@ -120,6 +150,7 @@ namespace MyPocketbook.Views
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
+            txtPassword.PasswordChar = '\0';
             if (txtPassword.Text == "Password")
             {
                 txtPassword.Text = "";
@@ -129,6 +160,7 @@ namespace MyPocketbook.Views
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
+            txtPassword.PasswordChar = '*';
             if (txtPassword.Text == "")
             {
                 txtPassword.Text = "Password";

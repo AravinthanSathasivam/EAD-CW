@@ -89,7 +89,9 @@ namespace MyPocketbook.Views
             this.txtPassword.ForeColor = System.Drawing.Color.Silver;
             this.txtPassword.Location = new System.Drawing.Point(635, 313);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPassword.MaxLength = 20;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(349, 23);
             this.txtPassword.TabIndex = 21;
             this.txtPassword.Text = "Password";
@@ -125,13 +127,13 @@ namespace MyPocketbook.Views
             this.txtUserID.ForeColor = System.Drawing.Color.Silver;
             this.txtUserID.Location = new System.Drawing.Point(635, 95);
             this.txtUserID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUserID.MaxLength = 50;
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(349, 23);
             this.txtUserID.TabIndex = 22;
             this.txtUserID.Text = "User Name";
             this.txtUserID.Enter += new System.EventHandler(this.txtUserID_Enter);
             this.txtUserID.Leave += new System.EventHandler(this.txtUserID_Leave);
-            
             // 
             // textFieldPic01
             // 
@@ -258,6 +260,7 @@ namespace MyPocketbook.Views
             this.txtFirstName.ForeColor = System.Drawing.Color.Silver;
             this.txtFirstName.Location = new System.Drawing.Point(635, 167);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFirstName.MaxLength = 50;
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(349, 23);
             this.txtFirstName.TabIndex = 22;
@@ -294,6 +297,7 @@ namespace MyPocketbook.Views
             this.txtLastName.ForeColor = System.Drawing.Color.Silver;
             this.txtLastName.Location = new System.Drawing.Point(635, 240);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLastName.MaxLength = 50;
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(349, 23);
             this.txtLastName.TabIndex = 22;
@@ -330,6 +334,7 @@ namespace MyPocketbook.Views
             this.txtRePassword.ForeColor = System.Drawing.Color.Silver;
             this.txtRePassword.Location = new System.Drawing.Point(635, 386);
             this.txtRePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRePassword.MaxLength = 20;
             this.txtRePassword.Name = "txtRePassword";
             this.txtRePassword.Size = new System.Drawing.Size(349, 23);
             this.txtRePassword.TabIndex = 21;

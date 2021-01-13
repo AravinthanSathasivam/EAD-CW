@@ -15,17 +15,10 @@ namespace MyPocketbook.Views
     public partial class ExpenseView : Form
     {
         TempData temp = new TempData();
+        Total total = new Total();
         public ExpenseView()
         {
             InitializeComponent();
-            if (File.Exists(@"D:\Database\TempData.xml") == true)
-            {
-               // temp.ReadXml(@"D:\Database\TempData.xml");
-              //  TempData.ExpenseRow data = temp.Expense[0];
-              //  this.txtExpName.Text = data.Name;
-              //  this.txtExpAmount.Text = data.Amount;
-              //  this.txtExpDescription.Text = data.Description;
-            }
         }
 
         private async void AddExpense(object sender, EventArgs e)
@@ -47,7 +40,7 @@ namespace MyPocketbook.Views
                     //temp.Expense.Clear();
                     temp.Expense.AddExpenseRow(this.txtExpName.Text, this.txtExpAmount.Text,
                     this.txtExpCategory.Text, this.txtExpDate.Text, this.txtExpDescription.Text);
-                    temp.WriteXml(@"D:\Database\TempData.xml");
+                    temp.WriteXml(@"D:\TempExpenseData.xml");
                 }
                 catch (DirectoryNotFoundException ex)
                 {
@@ -89,6 +82,16 @@ namespace MyPocketbook.Views
                     MessageBox.Show("Failed to Store in the Database", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ClearText();
+
+                    //Calling from file
+                    if (File.Exists(@"D:\Database\TempData.xml") == true)
+                    {
+                       temp.ReadXml(@"D:\Database\TempData.xml");
+                       TempData.ExpenseRow data = temp.Expense[0];
+                       this.txtExpName.Text = data.Name;
+                        this.txtExpAmount.Text = data.Amount;
+                       this.txtExpDescription.Text = data.Description;
+                    }
                     this.btnAddExpense.Enabled = false;
                 }
 

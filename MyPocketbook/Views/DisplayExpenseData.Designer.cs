@@ -227,9 +227,9 @@ namespace MyPocketbook.Views
             this.lblExpenseName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExpenseName.Location = new System.Drawing.Point(18, 88);
             this.lblExpenseName.Name = "lblExpenseName";
-            this.lblExpenseName.Size = new System.Drawing.Size(133, 28);
+            this.lblExpenseName.Size = new System.Drawing.Size(139, 28);
             this.lblExpenseName.TabIndex = 5;
-            this.lblExpenseName.Text = "Income Name";
+            this.lblExpenseName.Text = "Expense Name";
             // 
             // dataGridExpense
             // 

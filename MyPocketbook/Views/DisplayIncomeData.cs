@@ -110,10 +110,14 @@ namespace MyPocketbook.Views
         void PopulateIncomeData()
         {
             dataGridIncome.AutoGenerateColumns = false;
+           
             using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
             {
-
-                dataGridIncome.DataSource = database.Incomes.ToList<Income>();
+                var display = from dis in database.Expenses where dis.UserId.Equals(LoginView.forwardUserID)
+                              select dis;
+               // dataGridIncome.DataSource = database.Incomes.ToList<Income>();
+                dataGridIncome.DataSource = display.ToList();
+               
             }
         }
 

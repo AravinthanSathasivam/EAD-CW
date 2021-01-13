@@ -95,6 +95,7 @@ namespace MyPocketbook.Views
 
         private void txtPassword_Enter(object sender, EventArgs e)
         {
+            txtPassword.PasswordChar = '\0';
             if (txtPassword.Text == "Password")
             {
                 txtPassword.Text = "";
@@ -104,9 +105,11 @@ namespace MyPocketbook.Views
 
         private void txtPassword_Leave(object sender, EventArgs e)
         {
+            txtPassword.PasswordChar = '*';
             if (txtPassword.Text == "")
             {
                 txtPassword.Text = "Password";
+                ;
                 txtPassword.ForeColor = Color.Silver;
             }
         }
