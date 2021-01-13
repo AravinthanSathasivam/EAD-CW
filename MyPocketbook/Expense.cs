@@ -19,7 +19,7 @@ namespace MyPocketbook
         public string Amount { get; set; }
         public string Category { get; set; }
         public string Description { get; set; }
-        public string Date { get; set; }
+        public System.DateTime Date { get; set; }
         public int UserId { get; set; }
     
         public virtual User User { get; set; }

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/12/2021 14:07:52
+-- Date Created: 01/13/2021 06:03:40
 -- Generated from EDMX file: D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\MyPocketbookModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_UserExpense]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Expenses] DROP CONSTRAINT [FK_UserExpense];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserIncome]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Incomes] DROP CONSTRAINT [FK_UserIncome];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
+GO
+IF OBJECT_ID(N'[dbo].[Expenses]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Expenses];
+GO
+IF OBJECT_ID(N'[dbo].[Incomes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Incomes];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -44,7 +59,7 @@ CREATE TABLE [dbo].[Expenses] (
     [Amount] nvarchar(max)  NOT NULL,
     [Category] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
-    [Date] nvarchar(max)  NOT NULL,
+    [Date] datetime  NOT NULL,
     [UserId] int  NOT NULL
 );
 GO
@@ -56,7 +71,7 @@ CREATE TABLE [dbo].[Incomes] (
     [Amount] nvarchar(max)  NOT NULL,
     [Category] nvarchar(max)  NOT NULL,
     [Descrption] nvarchar(max)  NOT NULL,
-    [Date] nvarchar(max)  NOT NULL,
+    [Date] datetime  NOT NULL,
     [UserId] int  NOT NULL
 );
 GO

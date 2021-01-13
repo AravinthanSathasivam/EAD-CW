@@ -37,7 +37,7 @@
     <Property Name="Amount" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Incomes">
@@ -49,7 +49,7 @@
     <Property Name="Amount" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Descrption" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
     <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="UserExpense">
@@ -114,7 +114,7 @@
           <Property Name="Amount" Type="String" Nullable="false" />
           <Property Name="Category" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="User" Relationship="MyPocketbookModel.UserExpense" FromRole="Expense" ToRole="User" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
         </EntityType>
@@ -127,7 +127,7 @@
           <Property Name="Amount" Type="String" Nullable="false" />
           <Property Name="Category" Type="String" Nullable="false" />
           <Property Name="Descrption" Type="String" Nullable="false" />
-          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="User" Relationship="MyPocketbookModel.UserIncome" FromRole="Income" ToRole="User" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
         </EntityType>

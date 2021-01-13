@@ -26,7 +26,7 @@ namespace MyPocketbook.Views
             expense.Name = this.txtExpName.Text.Trim();
             expense.Amount = this.txtExpAmount.Text.Trim();
             expense.Category = this.txtExpCategory.Text.Trim();
-            expense.Date = this.txtExpDate.Text.Trim();
+            expense.Date = this.txtExpDate.Value;
             expense.Description = this.txtExpDescription.Text.Trim();
             using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
             {
@@ -110,13 +110,10 @@ namespace MyPocketbook.Views
                 using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
                 {
                     expense = database.Expenses.Where(x => x.Id == expense.Id).FirstOrDefault();
-                    // Converting String value to DateTime
-                    DateTime dt = DateTime.ParseExact
-                        (expense.Date, "dd-MM-yyyy", CultureInfo.InvariantCulture);
                     txtExpName.Text = expense.Name;
                     txtExpAmount.Text = expense.Amount;
                     txtExpCategory.Text = expense.Category;
-                    txtExpDate.Value = dt;
+                    txtExpDate.Value = expense.Date;
                     txtExpDescription.Text = expense.Description;
                 }
 

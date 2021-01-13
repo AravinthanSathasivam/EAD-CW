@@ -54,7 +54,7 @@ namespace MyPocketbook.Views
             dataExpense.Name = this.txtExpName.Text.Trim();
             dataExpense.Amount = this.txtExpAmount.Text.Trim();
             dataExpense.Category = this.txtExpCategory.Text.Trim();
-            dataExpense.Date = this.txtExpDate.Text.Trim();
+            dataExpense.Date = this.txtExpDate.Value;
             dataExpense.Description = this.txtExpDescription.Text.Trim();
             // Using thread - Task
             var taskStoreDB = await Task.Run(

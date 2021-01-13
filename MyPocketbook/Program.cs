@@ -16,7 +16,7 @@ namespace MyPocketbook
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Views.MainView());
+            Application.Run(new Views.LoginView());
         }
     }
 }
