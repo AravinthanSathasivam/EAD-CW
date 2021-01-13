@@ -108,6 +108,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TempData.xsd</DependentUpon>
     </Compile>
+    <Compile Include="test.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test.xsd</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>MyPocketbookModel.tt</DependentUpon>
     </Compile>
@@ -248,6 +253,17 @@
     </None>
     <None Include="TempData.xss">
       <DependentUpon>TempData.xsd</DependentUpon>
+    </None>
+    <None Include="test.xsc">
+      <DependentUpon>test.xsd</DependentUpon>
+    </None>
+    <None Include="test.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>test.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="test.xss">
+      <DependentUpon>test.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
