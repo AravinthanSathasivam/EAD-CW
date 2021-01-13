@@ -63,6 +63,7 @@ namespace MyPocketbook.Controls
             this.txtExpAmount.Name = "txtExpAmount";
             this.txtExpAmount.Size = new System.Drawing.Size(165, 34);
             this.txtExpAmount.TabIndex = 9;
+            this.txtExpAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountValidation);
             // 
             // txtExpDescription
             // 
@@ -92,6 +93,7 @@ namespace MyPocketbook.Controls
             this.Controls.Add(this.txtExpName);
             this.Name = "MultiDataEntryRow";
             this.Size = new System.Drawing.Size(1035, 52);
+            this.Load += new System.EventHandler(this.MultiDataEntryRow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

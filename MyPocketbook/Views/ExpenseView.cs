@@ -30,45 +30,72 @@ namespace MyPocketbook.Views
 
         private async void AddExpense(object sender, EventArgs e)
         {
-            this.btnAddExpense.Enabled = false;
-            //temp.Expense.Clear();
-            temp.Expense.AddExpenseRow(this.txtExpName.Text, this.txtExpAmount.Text,
-                this.txtExpCategory.Text, this.txtExpDate.Text, this.txtExpDescription.Text);
+            if (String.IsNullOrEmpty(this.txtExpName.Text) ||
+               String.IsNullOrEmpty(this.txtExpAmount.Text) ||
+               String.IsNullOrEmpty(this.txtExpDescription.Text))
 
-            //Store data into file
-            try
             {
-                temp.WriteXml(@"D:\Database\TempData.xml");
+                MessageBox.Show("Please Fill all the text fields", "Info",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (DirectoryNotFoundException ex)
+            else
             {
-                Console.WriteLine("Directory not found: " + ex.Message);
-                temp.WriteXml(@"D:\TempData.xml");
-            }
-
-            //Forward data to database
-            MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
-            Expense dataExpense = new Expense();
-            User userdata = new User();
-            dataExpense.UserId = LoginView.forwardUserID;
-            dataExpense.Name = this.txtExpName.Text.Trim();
-            dataExpense.Amount = this.txtExpAmount.Text.Trim();
-            dataExpense.Category = this.txtExpCategory.Text.Trim();
-            dataExpense.Date = this.txtExpDate.Value;
-            dataExpense.Description = this.txtExpDescription.Text.Trim();
-            // Using thread - Task
-            var taskStoreDB = await Task.Run(
-                () =>
+                this.btnAddExpense.Enabled = false;
+                //Store data into file
+                try
                 {
-                    userdata.Expenses.Add(dataExpense);
-                    database.Expenses.Add(dataExpense);
-                    database.SaveChanges();
-                    return true;
+                    //temp.Expense.Clear();
+                    temp.Expense.AddExpenseRow(this.txtExpName.Text, this.txtExpAmount.Text,
+                    this.txtExpCategory.Text, this.txtExpDate.Text, this.txtExpDescription.Text);
+                    temp.WriteXml(@"D:\Database\TempData.xml");
                 }
-                );
-            MessageBox.Show(" Entry Saved Successfully");
-            this.btnAddExpense.Enabled = true;
-            ClearText();
+                catch (DirectoryNotFoundException ex)
+                {
+                    Console.WriteLine("Directory not found: " + ex.Message);
+                }
+
+
+                try
+                {
+                    //Forward data to database
+                    MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+                    Expense dataExpense = new Expense();
+                    User userdata = new User();
+                    dataExpense.UserId = LoginView.forwardUserID;
+                    dataExpense.Name = this.txtExpName.Text.Trim();
+                    dataExpense.Amount = this.txtExpAmount.Text.Trim();
+                    dataExpense.Category = this.txtExpCategory.Text.Trim();
+                    dataExpense.Date = this.txtExpDate.Value;
+                    dataExpense.Description = this.txtExpDescription.Text.Trim();
+                    // Using thread - Task
+                    var taskStoreDB = await Task.Run(
+                        () =>
+                        {
+                            userdata.Expenses.Add(dataExpense);
+                            database.Expenses.Add(dataExpense);
+                            database.SaveChanges();
+                            return true;
+                        }
+                        );
+                    MessageBox.Show(" Entry Saved Successfully");
+                    this.btnAddExpense.Enabled = true;
+                    ClearText();
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                    MessageBox.Show("Failed to Store in the Database", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ClearText();
+                    this.btnAddExpense.Enabled = false;
+                }
+
+            }
+            
+
+            
         }
 
         //Display Expense Data
@@ -127,6 +154,7 @@ namespace MyPocketbook.Views
 
         private void ExpenseView_Load(object sender, EventArgs e)
         {
+           
             //Adding Expense catagories to ComboBox
             txtExpCategory.Items.Add("Travel");
             txtExpCategory.Items.Add("Food");

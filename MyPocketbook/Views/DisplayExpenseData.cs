@@ -43,28 +43,39 @@ namespace MyPocketbook.Views
 
         private void DeleteExpense(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure to Delete thid Data? ", 
-                "Crud Operation", MessageBoxButtons.YesNo) == DialogResult.Yes ) {
+            if (MessageBox.Show("Are you sure to Delete this Data? ",
+                "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes ) 
+            {
 
-                using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
+                try
                 {
-                    var entry = database.Entry(expense);
-                    if(entry.State == EntityState.Detached)
+                    using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
                     {
-                        database.Expenses.Attach(expense);
-                        database.Expenses.Remove(expense);
-                        database.SaveChanges();
-                        PopulateExpenseData();
-                        Clear();
-                        MessageBox.Show("Deleted Successfully !!!");
-                        btnEdit.Enabled = false;
-                        btnDelete.Enabled = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error Deleting data!! Try again Later");
+                        var entry = database.Entry(expense);
+                        if (entry.State == EntityState.Detached)
+                        {
+                            database.Expenses.Attach(expense);
+                            database.Expenses.Remove(expense);
+                            database.SaveChanges();
+                            PopulateExpenseData();
+                            Clear();
+                            MessageBox.Show("Deleted Successfully !!!");
+                            btnEdit.Enabled = false;
+                            btnDelete.Enabled = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error Deleting data!! Try again Later");
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Error Deleting data!! Try again Later");
+                }
+
+               
             }
         }
 
@@ -79,9 +90,6 @@ namespace MyPocketbook.Views
             dataGridExpense.AutoGenerateColumns = false;
             using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
             {
-                //User userdata = new User();
-               // var sample = userdata.Expenses.ToList<Expense>();
-                
                 dataGridExpense.DataSource = database.Expenses.ToList<Expense>();
             }
         }

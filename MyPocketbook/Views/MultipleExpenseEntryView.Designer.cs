@@ -108,6 +108,7 @@ namespace MyPocketbook.Views
             this.btnAddExpense.TabIndex = 9;
             this.btnAddExpense.Text = "Add";
             this.btnAddExpense.UseVisualStyleBackColor = false;
+            this.btnAddExpense.Click += new System.EventHandler(this.AddExpenseData);
             // 
             // btnEnter
             // 
