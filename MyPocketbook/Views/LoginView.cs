@@ -39,14 +39,14 @@ namespace MyPocketbook.Views
             MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
             if (database != null)
             {
-                var validUser = database.Users.FirstOrDefault(u => u.UserName == txtUserID.Text);
-                if (validUser != null)
+                var validateUser = database.Users.FirstOrDefault(u => u.UserName == txtUserID.Text);
+                if (validateUser != null)
                 {
-                    if(validUser.Password == txtPassword.Text)
+                    if(validateUser.Password == txtPassword.Text)
                     {
                         Console.WriteLine("Login Successful!! ");
-                        forwardUserID = validUser.Id;
-                        forwardFirstName = validUser.FirstName;
+                        forwardUserID = validateUser.Id;
+                        forwardFirstName = validateUser.FirstName;
                         Console.WriteLine(forwardUserID);
                         MessageBox.Show(" Login Successful!! \n Welcome " + forwardFirstName);
                         this.Hide();
@@ -64,7 +64,7 @@ namespace MyPocketbook.Views
 
                 else
                 {
-                    MessageBox.Show(" No user found");
+                    MessageBox.Show("Invalid User Credentials");
                     Console.WriteLine(this.txtUserID);                  
                 }
             }

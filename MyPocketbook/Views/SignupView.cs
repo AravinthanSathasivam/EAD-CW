@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace MyPocketbook.Views
 {
     public partial class SignupView : Form
@@ -33,11 +34,13 @@ namespace MyPocketbook.Views
         private void CreateAccount(object sender, EventArgs e)
         {
             StoreDatabase();
-            MessageBox.Show(" Created An Account Successfully !!");
+            MessageBox.Show(" Created An Account Successfully !!", "Info",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Hide();
             LoginView loginView = new LoginView();
             loginView.ShowDialog();
             this.Close();
+           
         }
 
         void StoreDatabase()
@@ -151,5 +154,7 @@ namespace MyPocketbook.Views
             }
         }
 
+        // Validating text Boxes
+   
     }
 }

@@ -119,21 +119,17 @@ namespace MyPocketbook.Views
             //View Report Form
             MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
 
-            if (!database.Incomes.Any())
+            if (!database.Incomes.Any() || !database.Expenses.Any())
             {
-                if (!database.Expenses.Any())
-                {
-                    ReportView report = new ReportView();
-                    report.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Please Enter Income And Expense Data");
-                }              
+                // tables are Empty
+                MessageBox.Show("Please Enter Income And Expense Data");
             }
             else
             {
-                MessageBox.Show("Please Enter Income Data");
+                ReportView report = new ReportView();
+                report.ShowDialog();
+                Console.WriteLine(!database.Incomes.Any());
+                Console.WriteLine(!database.Expenses.Any());
             }
             
 

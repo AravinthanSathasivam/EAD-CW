@@ -29,6 +29,7 @@ namespace MyPocketbook.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureUserID = new System.Windows.Forms.PictureBox();
@@ -52,6 +53,7 @@ namespace MyPocketbook.Views
             this.textFieldPic05 = new System.Windows.Forms.PictureBox();
             this.txtRePassword = new System.Windows.Forms.TextBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUserID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFieldPic04)).BeginInit();
@@ -66,12 +68,13 @@ namespace MyPocketbook.Views
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFieldPic05)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::MyPocketbook.Properties.Resources.password;
-            this.pictureBox7.Location = new System.Drawing.Point(611, 313);
+            this.pictureBox7.Location = new System.Drawing.Point(596, 313);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(29, 30);
@@ -84,7 +87,7 @@ namespace MyPocketbook.Views
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.Silver;
-            this.txtPassword.Location = new System.Drawing.Point(650, 313);
+            this.txtPassword.Location = new System.Drawing.Point(635, 313);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(349, 23);
@@ -96,7 +99,7 @@ namespace MyPocketbook.Views
             // pictureUserID
             // 
             this.pictureUserID.Image = global::MyPocketbook.Properties.Resources.name;
-            this.pictureUserID.Location = new System.Drawing.Point(611, 95);
+            this.pictureUserID.Location = new System.Drawing.Point(596, 95);
             this.pictureUserID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureUserID.Name = "pictureUserID";
             this.pictureUserID.Size = new System.Drawing.Size(29, 30);
@@ -107,7 +110,7 @@ namespace MyPocketbook.Views
             // textFieldPic04
             // 
             this.textFieldPic04.Image = global::MyPocketbook.Properties.Resources.textbox;
-            this.textFieldPic04.Location = new System.Drawing.Point(594, 294);
+            this.textFieldPic04.Location = new System.Drawing.Point(579, 294);
             this.textFieldPic04.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textFieldPic04.Name = "textFieldPic04";
             this.textFieldPic04.Size = new System.Drawing.Size(429, 65);
@@ -120,7 +123,7 @@ namespace MyPocketbook.Views
             this.txtUserID.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserID.ForeColor = System.Drawing.Color.Silver;
-            this.txtUserID.Location = new System.Drawing.Point(650, 95);
+            this.txtUserID.Location = new System.Drawing.Point(635, 95);
             this.txtUserID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(349, 23);
@@ -128,11 +131,12 @@ namespace MyPocketbook.Views
             this.txtUserID.Text = "User Name";
             this.txtUserID.Enter += new System.EventHandler(this.txtUserID_Enter);
             this.txtUserID.Leave += new System.EventHandler(this.txtUserID_Leave);
+            
             // 
             // textFieldPic01
             // 
             this.textFieldPic01.Image = global::MyPocketbook.Properties.Resources.textbox;
-            this.textFieldPic01.Location = new System.Drawing.Point(594, 76);
+            this.textFieldPic01.Location = new System.Drawing.Point(579, 76);
             this.textFieldPic01.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textFieldPic01.Name = "textFieldPic01";
             this.textFieldPic01.Size = new System.Drawing.Size(429, 65);
@@ -145,7 +149,7 @@ namespace MyPocketbook.Views
             this.lblTitleName.AutoSize = true;
             this.lblTitleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitleName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
-            this.lblTitleName.Location = new System.Drawing.Point(586, 22);
+            this.lblTitleName.Location = new System.Drawing.Point(571, 22);
             this.lblTitleName.Name = "lblTitleName";
             this.lblTitleName.Size = new System.Drawing.Size(155, 44);
             this.lblTitleName.TabIndex = 18;
@@ -156,7 +160,7 @@ namespace MyPocketbook.Views
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(204)))), ((int)(((byte)(112)))));
-            this.lblLogin.Location = new System.Drawing.Point(868, 501);
+            this.lblLogin.Location = new System.Drawing.Point(853, 501);
             this.lblLogin.Name = "lblLogin";
             this.lblLogin.Size = new System.Drawing.Size(55, 20);
             this.lblLogin.TabIndex = 17;
@@ -168,7 +172,7 @@ namespace MyPocketbook.Views
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(96)))), ((int)(((byte)(130)))));
-            this.label2.Location = new System.Drawing.Point(632, 501);
+            this.label2.Location = new System.Drawing.Point(617, 501);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(203, 20);
             this.label2.TabIndex = 16;
@@ -227,7 +231,7 @@ namespace MyPocketbook.Views
             this.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignup.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
-            this.btnSignup.Location = new System.Drawing.Point(594, 438);
+            this.btnSignup.Location = new System.Drawing.Point(579, 438);
             this.btnSignup.Margin = new System.Windows.Forms.Padding(4);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(429, 49);
@@ -239,7 +243,7 @@ namespace MyPocketbook.Views
             // textFieldPic02
             // 
             this.textFieldPic02.Image = global::MyPocketbook.Properties.Resources.textbox;
-            this.textFieldPic02.Location = new System.Drawing.Point(594, 148);
+            this.textFieldPic02.Location = new System.Drawing.Point(579, 148);
             this.textFieldPic02.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textFieldPic02.Name = "textFieldPic02";
             this.textFieldPic02.Size = new System.Drawing.Size(429, 65);
@@ -252,7 +256,7 @@ namespace MyPocketbook.Views
             this.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.ForeColor = System.Drawing.Color.Silver;
-            this.txtFirstName.Location = new System.Drawing.Point(650, 167);
+            this.txtFirstName.Location = new System.Drawing.Point(635, 167);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(349, 23);
@@ -264,7 +268,7 @@ namespace MyPocketbook.Views
             // pictureBox9
             // 
             this.pictureBox9.Image = global::MyPocketbook.Properties.Resources.name;
-            this.pictureBox9.Location = new System.Drawing.Point(611, 167);
+            this.pictureBox9.Location = new System.Drawing.Point(596, 167);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(29, 30);
@@ -275,7 +279,7 @@ namespace MyPocketbook.Views
             // textFieldPic03
             // 
             this.textFieldPic03.Image = global::MyPocketbook.Properties.Resources.textbox;
-            this.textFieldPic03.Location = new System.Drawing.Point(594, 221);
+            this.textFieldPic03.Location = new System.Drawing.Point(579, 221);
             this.textFieldPic03.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textFieldPic03.Name = "textFieldPic03";
             this.textFieldPic03.Size = new System.Drawing.Size(429, 65);
@@ -288,7 +292,7 @@ namespace MyPocketbook.Views
             this.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLastName.ForeColor = System.Drawing.Color.Silver;
-            this.txtLastName.Location = new System.Drawing.Point(650, 240);
+            this.txtLastName.Location = new System.Drawing.Point(635, 240);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(349, 23);
@@ -300,7 +304,7 @@ namespace MyPocketbook.Views
             // pictureBox11
             // 
             this.pictureBox11.Image = global::MyPocketbook.Properties.Resources.name;
-            this.pictureBox11.Location = new System.Drawing.Point(611, 240);
+            this.pictureBox11.Location = new System.Drawing.Point(596, 240);
             this.pictureBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(29, 30);
@@ -311,7 +315,7 @@ namespace MyPocketbook.Views
             // textFieldPic05
             // 
             this.textFieldPic05.Image = global::MyPocketbook.Properties.Resources.textbox;
-            this.textFieldPic05.Location = new System.Drawing.Point(594, 367);
+            this.textFieldPic05.Location = new System.Drawing.Point(579, 367);
             this.textFieldPic05.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textFieldPic05.Name = "textFieldPic05";
             this.textFieldPic05.Size = new System.Drawing.Size(429, 65);
@@ -324,7 +328,7 @@ namespace MyPocketbook.Views
             this.txtRePassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRePassword.ForeColor = System.Drawing.Color.Silver;
-            this.txtRePassword.Location = new System.Drawing.Point(650, 386);
+            this.txtRePassword.Location = new System.Drawing.Point(635, 386);
             this.txtRePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRePassword.Name = "txtRePassword";
             this.txtRePassword.Size = new System.Drawing.Size(349, 23);
@@ -336,13 +340,17 @@ namespace MyPocketbook.Views
             // pictureBox13
             // 
             this.pictureBox13.Image = global::MyPocketbook.Properties.Resources.password;
-            this.pictureBox13.Location = new System.Drawing.Point(611, 386);
+            this.pictureBox13.Location = new System.Drawing.Point(596, 386);
             this.pictureBox13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(29, 30);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox13.TabIndex = 23;
             this.pictureBox13.TabStop = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // SignupView
             // 
@@ -390,6 +398,7 @@ namespace MyPocketbook.Views
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textFieldPic05)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,5 +429,6 @@ namespace MyPocketbook.Views
         private System.Windows.Forms.PictureBox textFieldPic05;
         private System.Windows.Forms.TextBox txtRePassword;
         private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

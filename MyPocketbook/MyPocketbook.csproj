@@ -73,6 +73,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\MultiDataEntryRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MultiDataEntryRow.Designer.cs">
+      <DependentUpon>MultiDataEntryRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Expense.cs">
       <DependentUpon>MyPocketbookModel.tt</DependentUpon>
     </Compile>
@@ -171,6 +177,9 @@
     <Compile Include="Views\SignupView.Designer.cs">
       <DependentUpon>SignupView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\MultiDataEntryRow.resx">
+      <DependentUpon>MultiDataEntryRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
