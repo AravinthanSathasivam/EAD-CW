@@ -12,18 +12,17 @@
   <xs:element name="Total" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Total" msprop:Generator_UserDSName="Total">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Total" msprop:Generator_TableClassName="TotalDataTable" msprop:Generator_TableVarName="tableTotal" msprop:Generator_TablePropName="_Total" msprop:Generator_RowDeletingName="TotalRowDeleting" msprop:Generator_RowChangingName="TotalRowChanging" msprop:Generator_RowEvHandlerName="TotalRowChangeEventHandler" msprop:Generator_RowDeletedName="TotalRowDeleted" msprop:Generator_UserTableName="Total" msprop:Generator_RowChangedName="TotalRowChanged" msprop:Generator_RowEvArgName="TotalRowChangeEvent" msprop:Generator_RowClassName="TotalRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Expense" msprop:Generator_ColumnVarNameInTable="columnExpense" msprop:Generator_ColumnPropNameInRow="Expense" msprop:Generator_ColumnPropNameInTable="ExpenseColumn" msprop:Generator_UserColumnName="Expense" type="xs:double" minOccurs="0" />
-              <xs:element name="Income" msprop:Generator_ColumnVarNameInTable="columnIncome" msprop:Generator_ColumnPropNameInRow="Income" msprop:Generator_ColumnPropNameInTable="IncomeColumn" msprop:Generator_UserColumnName="Income" type="xs:double" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="ExpenseTot" msprop:Generator_TableClassName="ExpenseTotDataTable" msprop:Generator_TableVarName="tableExpenseTot" msprop:Generator_TablePropName="ExpenseTot" msprop:Generator_RowDeletingName="ExpenseTotRowDeleting" msprop:Generator_RowChangingName="ExpenseTotRowChanging" msprop:Generator_RowEvHandlerName="ExpenseTotRowChangeEventHandler" msprop:Generator_RowDeletedName="ExpenseTotRowDeleted" msprop:Generator_UserTableName="ExpenseTot" msprop:Generator_RowChangedName="ExpenseTotRowChanged" msprop:Generator_RowEvArgName="ExpenseTotRowChangeEvent" msprop:Generator_RowClassName="ExpenseTotRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="expense" msprop:Generator_ColumnVarNameInTable="columnexpense" msprop:Generator_ColumnPropNameInRow="expense" msprop:Generator_ColumnPropNameInTable="expenseColumn" msprop:Generator_UserColumnName="expense" type="xs:string" minOccurs="0" />
+              <xs:element name="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IncomeTot" msprop:Generator_TableClassName="IncomeTotDataTable" msprop:Generator_TableVarName="tableIncomeTot" msprop:Generator_TablePropName="IncomeTot" msprop:Generator_RowDeletingName="IncomeTotRowDeleting" msprop:Generator_RowChangingName="IncomeTotRowChanging" msprop:Generator_RowEvHandlerName="IncomeTotRowChangeEventHandler" msprop:Generator_RowDeletedName="IncomeTotRowDeleted" msprop:Generator_UserTableName="IncomeTot" msprop:Generator_RowChangedName="IncomeTotRowChanged" msprop:Generator_RowEvArgName="IncomeTotRowChangeEvent" msprop:Generator_RowClassName="IncomeTotRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="value" msprop:Generator_ColumnVarNameInTable="columnvalue" msprop:Generator_ColumnPropNameInRow="value" msprop:Generator_ColumnPropNameInTable="valueColumn" msprop:Generator_UserColumnName="value" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

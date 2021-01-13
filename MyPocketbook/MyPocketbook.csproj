@@ -397,6 +397,8 @@
       <LastGenOutput>MyPocketbookModel.cs</LastGenOutput>
       <DependentUpon>MyPocketbookModel.edmx</DependentUpon>
     </Content>
+    <None Include="Resources\chart.png" />
+    <None Include="Resources\graph.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

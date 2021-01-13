@@ -59,28 +59,34 @@ namespace MyPocketbook.Controls
             // txtExpAmount
             // 
             this.txtExpAmount.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExpAmount.ForeColor = System.Drawing.Color.Silver;
             this.txtExpAmount.Location = new System.Drawing.Point(244, 10);
             this.txtExpAmount.Name = "txtExpAmount";
             this.txtExpAmount.Size = new System.Drawing.Size(165, 34);
             this.txtExpAmount.TabIndex = 9;
+            this.txtExpAmount.Text = "00.00";
             this.txtExpAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountValidation);
             // 
             // txtExpDescription
             // 
             this.txtExpDescription.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExpDescription.ForeColor = System.Drawing.Color.Silver;
             this.txtExpDescription.Location = new System.Drawing.Point(804, 8);
             this.txtExpDescription.Multiline = true;
             this.txtExpDescription.Name = "txtExpDescription";
             this.txtExpDescription.Size = new System.Drawing.Size(219, 36);
             this.txtExpDescription.TabIndex = 10;
+            this.txtExpDescription.Text = "Description";
             // 
             // txtExpName
             // 
             this.txtExpName.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExpName.ForeColor = System.Drawing.Color.Silver;
             this.txtExpName.Location = new System.Drawing.Point(12, 10);
             this.txtExpName.Name = "txtExpName";
             this.txtExpName.Size = new System.Drawing.Size(216, 34);
             this.txtExpName.TabIndex = 11;
+            this.txtExpName.Text = "Expense Name";
             // 
             // MultiDataEntryRow
             // 

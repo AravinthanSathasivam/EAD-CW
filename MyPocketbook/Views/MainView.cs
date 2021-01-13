@@ -118,8 +118,11 @@ namespace MyPocketbook.Views
 
             //View Report Form
             MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+           
+           var display = from dis in database.Expenses where dis.UserId.Equals(LoginView.forwardUserID) select dis;
+            var display2 = from dis in database.Incomes where dis.UserId.Equals(LoginView.forwardUserID) select dis;
 
-            if (!database.Incomes.Any() || !database.Expenses.Any())
+            if (!display.Any() || !display2.Any())
             {
                 // tables are Empty
                 MessageBox.Show("Please Enter Income And Expense Data");
@@ -155,6 +158,15 @@ namespace MyPocketbook.Views
 
         private void LogoutApp(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Do you really want to Log out? ",
+                "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginView loginView = new LoginView();
+                loginView.ShowDialog();
+                this.Close();
+            }
+                
             //Nav-Button UI 
             pnlNavbar.Height = btnLogout.Height;
             pnlNavbar.Top = btnLogout.Top;

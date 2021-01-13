@@ -16,5 +16,30 @@ namespace MyPocketbook.Views
         {
             InitializeComponent();
         }
+
+        private void Dashbord_Load(object sender, EventArgs e)
+        {
+            MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+
+            if (!database.Incomes.Any() || !database.Expenses.Any())
+            {
+                lblNoData01.Visible = true;
+                lblNoData02.Visible = true;
+                lblNoData03.Visible = true;
+                lblNoData04.Visible = true;
+                picChart.Visible = false;
+                picGraph.Visible = false;
+
+            }
+            else
+            {
+                picChart.Visible = true;
+                picGraph.Visible = true;
+                lblNoData01.Visible = false;
+                lblNoData02.Visible = false;
+                lblNoData03.Visible = false;
+                lblNoData04.Visible = false;
+            }
+        }
     }
 }
