@@ -27,10 +27,10 @@ namespace MyPocketbook.Views
                 using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
                 {
                     Console.WriteLine(!database.Expenses.Any());
-                    // Checking the Expense Table is empty or not
+                    // Checking the Income Table is empty or not
                     if (!database.Incomes.Any())
                     {
-                        MessageBox.Show("No Expense Data to display \n Enter Expense Data");
+                        MessageBox.Show("No Income Data to display \n Enter Income Data");
                     }
                     else
                     {

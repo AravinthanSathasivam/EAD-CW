@@ -42,8 +42,8 @@ namespace MyPocketbook.Views
 
         private void DeleteExpense(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure to Delete this Data? ",
-                "Crud Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure you want to delete this item? ",
+                "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
 
                 using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
