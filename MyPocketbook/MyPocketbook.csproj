@@ -224,6 +224,9 @@
     <EmbeddedResource Include="Views\DisplayIncomeData.resx">
       <DependentUpon>DisplayIncomeData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ExpensePrediction.resx">
+      <DependentUpon>ExpensePrediction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ExpenseView.resx">
       <DependentUpon>ExpenseView.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ReportView.resx">
       <DependentUpon>ReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SettingsView.resx">
+      <DependentUpon>SettingsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SignupView.resx">
       <DependentUpon>SignupView.cs</DependentUpon>
@@ -399,6 +405,7 @@
     </Content>
     <None Include="Resources\chart.png" />
     <None Include="Resources\graph.png" />
+    <None Include="Resources\settings-new.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

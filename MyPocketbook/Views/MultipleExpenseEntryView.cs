@@ -20,6 +20,7 @@ namespace MyPocketbook.Views
         public MultipleExpenseEntryView()
         {
             InitializeComponent();
+            this.btnAddExpense.Enabled = false;
         }
 
         MultiDataEntryRow[] arrEntryRow;

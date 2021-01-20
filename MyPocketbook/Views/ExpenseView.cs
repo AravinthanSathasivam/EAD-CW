@@ -14,11 +14,16 @@ namespace MyPocketbook.Views
 {
     public partial class ExpenseView : Form
     {
+
+        // Dummy Code to calculate total
+        double expValue;
+        public static double totalExpense = 0;
         TempData temp = new TempData();
         Total total = new Total();
         public ExpenseView()
         {
             InitializeComponent();
+
         }
 
         private async void AddExpense(object sender, EventArgs e)
@@ -37,10 +42,23 @@ namespace MyPocketbook.Views
                 //Store data into file
                 try
                 {
-                    //temp.Expense.Clear();
+                    //Write temp data
                     temp.Expense.AddExpenseRow(this.txtExpName.Text, this.txtExpAmount.Text,
                     this.txtExpCategory.Text, this.txtExpDate.Text, this.txtExpDescription.Text);
                     temp.WriteXml(@"D:\TempExpenseData.xml");
+
+                    // Calculate 
+                        expValue = double.Parse(this.txtExpAmount.Text,
+                        System.Globalization.CultureInfo.InvariantCulture);
+                    totalExpense = totalExpense + expValue;
+                    //Write temp data
+                    
+                    total.ExpenseTot.AddExpenseTotRow(totalExpense);
+                    total.WriteXml(@"D:\ExpenseTotalData.xml");
+                    Console.WriteLine(totalExpense);
+
+
+
                 }
                 catch (DirectoryNotFoundException ex)
                 {

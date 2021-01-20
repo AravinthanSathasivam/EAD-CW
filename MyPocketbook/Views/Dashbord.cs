@@ -15,6 +15,9 @@ namespace MyPocketbook.Views
         public Dashbord()
         {
             InitializeComponent();
+
+            lblExpTotal.Text = ExpenseView.totalExpense.ToString();
+            lblIncomeTotal.Text = IncomeView.totalIncome.ToString();
         }
 
         private void Dashbord_Load(object sender, EventArgs e)

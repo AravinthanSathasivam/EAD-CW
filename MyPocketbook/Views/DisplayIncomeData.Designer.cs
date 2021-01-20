@@ -336,7 +336,7 @@ namespace MyPocketbook.Views
             this.MinimizeBox = false;
             this.Name = "DisplayIncomeData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DisplayIncomeData";
+            this.Text = "Income Data";
             this.Load += new System.EventHandler(this.DisplayIncomeData_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();

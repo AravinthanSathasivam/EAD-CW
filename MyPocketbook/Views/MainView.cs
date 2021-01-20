@@ -140,6 +140,9 @@ namespace MyPocketbook.Views
 
         private void OpenPrediction(object sender, EventArgs e)
         {
+            ExpensePrediction prediction = new ExpensePrediction();
+            prediction.ShowDialog();
+
             //Nav-Button UI 
             pnlNavbar.Height = btnPredict.Height;
             pnlNavbar.Top = btnPredict.Top;
@@ -149,6 +152,8 @@ namespace MyPocketbook.Views
 
         private void OpenSettings(object sender, EventArgs e)
         {
+            SettingsView setting = new SettingsView();
+            setting.ShowDialog();
             //Nav-Button UI 
             pnlNavbar.Height = btnSettings.Height;
             pnlNavbar.Top = btnSettings.Top;

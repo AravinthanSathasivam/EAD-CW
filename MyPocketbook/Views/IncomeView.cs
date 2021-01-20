@@ -13,6 +13,9 @@ namespace MyPocketbook.Views
 {
     public partial class IncomeView : Form
     {
+        double incValue;
+        public static double totalIncome = 0;
+        Total total = new Total();
         TempData temp = new TempData();
         public IncomeView()
         {
@@ -70,6 +73,16 @@ namespace MyPocketbook.Views
                     temp.Income.AddIncomeRow(this.txtIncName.Text, this.txtIncAmount.Text,
                     this.txtIncCatagory.Text, this.txtIncDate.Text, this.txtIncDescription.Text);
                     temp.WriteXml(@"D:\Database\TempData.xml");
+
+                    // Calculate 
+                    incValue = double.Parse(this.txtIncAmount.Text,
+                    System.Globalization.CultureInfo.InvariantCulture);
+                    totalIncome = totalIncome + incValue;
+                    //Write temp data
+
+                    total.ExpenseTot.AddExpenseTotRow(totalIncome);
+                    total.WriteXml(@"D:\IncomeTotalData.xml");
+                    Console.WriteLine(totalIncome);
                 }
                 catch (DirectoryNotFoundException ex)
                 {

@@ -32,26 +32,41 @@ namespace MyPocketbook.Views
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.expensesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.test = new MyPocketbook.test();
+            this.incomesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.incomesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.incomesTableAdapter = new MyPocketbook.testTableAdapters.IncomesTableAdapter();
             this.tempData = new MyPocketbook.TempData();
             this.tempDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expenseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.incomesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.expensesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.expensesTableAdapter = new MyPocketbook.testTableAdapters.ExpensesTableAdapter();
-            this.incomesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.expensesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.test)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expenseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.expensesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // expensesBindingSource
+            // 
+            this.expensesBindingSource.DataMember = "Expenses";
+            this.expensesBindingSource.DataSource = this.test;
+            // 
+            // test
+            // 
+            this.test.DataSetName = "test";
+            this.test.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // incomesBindingSource2
+            // 
+            this.incomesBindingSource2.DataMember = "Incomes";
+            this.incomesBindingSource2.DataSource = this.test;
             // 
             // reportViewer1
             // 
@@ -67,11 +82,6 @@ namespace MyPocketbook.Views
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(911, 607);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // test
-            // 
-            this.test.DataSetName = "test";
-            this.test.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // incomesBindingSource
             // 
@@ -102,19 +112,9 @@ namespace MyPocketbook.Views
             this.incomesBindingSource1.DataMember = "Incomes";
             this.incomesBindingSource1.DataSource = this.test;
             // 
-            // expensesBindingSource
-            // 
-            this.expensesBindingSource.DataMember = "Expenses";
-            this.expensesBindingSource.DataSource = this.test;
-            // 
             // expensesTableAdapter
             // 
             this.expensesTableAdapter.ClearBeforeFill = true;
-            // 
-            // incomesBindingSource2
-            // 
-            this.incomesBindingSource2.DataMember = "Incomes";
-            this.incomesBindingSource2.DataSource = this.test;
             // 
             // ReportView
             // 
@@ -124,16 +124,17 @@ namespace MyPocketbook.Views
             this.ClientSize = new System.Drawing.Size(945, 631);
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReportView";
-            this.Text = "ReportView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Report";
             this.Load += new System.EventHandler(this.ReportView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.expensesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.test)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expenseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.expensesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incomesBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }

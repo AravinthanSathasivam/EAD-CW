@@ -15,6 +15,12 @@ namespace MyPocketbook.Views
         public ExpensePrediction()
         {
             InitializeComponent();
+            if (ExpenseView.totalExpense != 0)
+            {
+                lblPrediction.Text = (ExpenseView.totalExpense / 12).ToString();
+            }
+
+            
         }
     }
 }
