@@ -23,7 +23,8 @@ namespace MyPocketbook.Views
         private void EditExpense(object sender, EventArgs e)
         {
             income.Name = this.txtIncName.Text.Trim();
-            income.Amount = this.txtIncAmount.Text.Trim();
+            income.Amount = double.Parse(this.txtIncAmount.Text,
+                    System.Globalization.CultureInfo.InvariantCulture);
             income.Category = this.txtIncCatagory.Text.Trim();
             income.Date = this.txtIncDate.Value;
             income.Descrption = this.txtIncDescription.Text.Trim();
@@ -78,7 +79,7 @@ namespace MyPocketbook.Views
                 {
                     income = database.Incomes.Where(x => x.Id == income.Id).FirstOrDefault();
                     txtIncName.Text = income.Name;
-                    txtIncAmount.Text = income.Amount;
+                    txtIncAmount.Text = income.Amount.ToString();
                     txtIncCatagory.Text = income.Category;
                     txtIncDate.Value = income.Date;
                     txtIncDescription.Text = income.Descrption;
@@ -113,7 +114,7 @@ namespace MyPocketbook.Views
            
             using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
             {
-                var display = from dis in database.Expenses where dis.UserId.Equals(LoginView.forwardUserID)
+                var display = from dis in database.Incomes where dis.UserId.Equals(LoginView.forwardUserID)
                               select dis;
                // dataGridIncome.DataSource = database.Incomes.ToList<Income>();
                 dataGridIncome.DataSource = display.ToList();

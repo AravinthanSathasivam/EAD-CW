@@ -63,7 +63,7 @@ namespace MyPocketbook.Views
                     //Forward data to database
                     dataExpense.UserId = LoginView.forwardUserID;
                     dataExpense.Name = this.arrEntryRow[i].GetExpenseName();
-                    dataExpense.Amount = this.arrEntryRow[i].GetExpenseAmount();
+                   // dataExpense.Amount = this.arrEntryRow[i].GetExpenseAmount();
                     dataExpense.Category = this.arrEntryRow[i].GetExpenseCategort();
                     dataExpense.Date = this.arrEntryRow[i].GetDate();
                     dataExpense.Description = this.arrEntryRow[i].GetDescrption();

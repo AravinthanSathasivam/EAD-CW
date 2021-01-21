@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/13/2021 06:03:40
+-- Date Created: 01/21/2021 20:28:52
 -- Generated from EDMX file: D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\MyPocketbookModel.edmx
 -- --------------------------------------------------
 
@@ -56,7 +56,7 @@ GO
 CREATE TABLE [dbo].[Expenses] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Amount] nvarchar(max)  NOT NULL,
+    [Amount] float  NOT NULL,
     [Category] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
     [Date] datetime  NOT NULL,
@@ -68,7 +68,7 @@ GO
 CREATE TABLE [dbo].[Incomes] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Amount] nvarchar(max)  NOT NULL,
+    [Amount] float  NOT NULL,
     [Category] nvarchar(max)  NOT NULL,
     [Descrption] nvarchar(max)  NOT NULL,
     [Date] datetime  NOT NULL,

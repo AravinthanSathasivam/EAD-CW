@@ -24,7 +24,8 @@ namespace MyPocketbook.Views
         private void EditExpense(object sender, EventArgs e)
         {
             expense.Name = this.txtExpName.Text.Trim();
-            expense.Amount = this.txtExpAmount.Text.Trim();
+            expense.Amount = double.Parse(this.txtExpAmount.Text,
+                        System.Globalization.CultureInfo.InvariantCulture);
             expense.Category = this.txtExpCategory.Text.Trim();
             expense.Date = this.txtExpDate.Value;
             expense.Description = this.txtExpDescription.Text.Trim();
@@ -120,7 +121,7 @@ namespace MyPocketbook.Views
                 {
                     expense = database.Expenses.Where(x => x.Id == expense.Id).FirstOrDefault();
                     txtExpName.Text = expense.Name;
-                    txtExpAmount.Text = expense.Amount;
+                    txtExpAmount.Text = expense.Amount.ToString();
                     txtExpCategory.Text = expense.Category;
                     txtExpDate.Value = expense.Date;
                     txtExpDescription.Text = expense.Description;

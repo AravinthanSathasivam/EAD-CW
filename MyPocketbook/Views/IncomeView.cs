@@ -98,7 +98,8 @@ namespace MyPocketbook.Views
                     User userdata = new User();
                     income.UserId = LoginView.forwardUserID;
                     income.Name = this.txtIncName.Text.Trim();
-                    income.Amount = this.txtIncAmount.Text.Trim();
+                    income.Amount = double.Parse(this.txtIncAmount.Text,
+                    System.Globalization.CultureInfo.InvariantCulture);
                     income.Category = this.txtIncCatagory.Text.Trim();
                     income.Date = this.txtIncDate.Value;
                     income.Descrption = this.txtIncDescription.Text.Trim();

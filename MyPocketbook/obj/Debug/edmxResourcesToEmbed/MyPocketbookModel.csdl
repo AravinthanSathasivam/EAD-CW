@@ -31,7 +31,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="Amount" Type="String" Nullable="false" />
+    <Property Name="Amount" Type="Double" Nullable="false" />
     <Property Name="Category" Type="String" Nullable="false" />
     <Property Name="Description" Type="String" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" />
@@ -44,7 +44,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" />
-    <Property Name="Amount" Type="String" Nullable="false" />
+    <Property Name="Amount" Type="Double" Nullable="false" />
     <Property Name="Category" Type="String" Nullable="false" />
     <Property Name="Descrption" Type="String" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" />

@@ -74,7 +74,8 @@ namespace MyPocketbook.Views
                     User userdata = new User();
                     dataExpense.UserId = LoginView.forwardUserID;
                     dataExpense.Name = this.txtExpName.Text.Trim();
-                    dataExpense.Amount = this.txtExpAmount.Text.Trim();
+                    dataExpense.Amount = double.Parse(this.txtExpAmount.Text,
+                        System.Globalization.CultureInfo.InvariantCulture);
                     dataExpense.Category = this.txtExpCategory.Text.Trim();
                     dataExpense.Date = this.txtExpDate.Value;
                     dataExpense.Description = this.txtExpDescription.Text.Trim();

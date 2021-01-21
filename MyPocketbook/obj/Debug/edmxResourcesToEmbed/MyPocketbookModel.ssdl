@@ -29,7 +29,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Amount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
     <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
@@ -41,7 +41,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Amount" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
     <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Descrption" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
