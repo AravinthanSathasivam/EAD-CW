@@ -90,7 +90,8 @@ namespace MyPocketbook.Views
         {
             dataGridExpense.AutoGenerateColumns = false;
             using (MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1())
-            { var display = from dis in database.Expenses where dis.UserId.Equals(LoginView.forwardUserID) select dis;
+            { var display = from dis in database.Expenses where dis.UserId.Equals(LoginView.forwardUserID)
+                            select dis;
                 //dataGridExpense.DataSource = database.Expenses.ToList<Expense>();
                 dataGridExpense.DataSource = display.ToList();
             }

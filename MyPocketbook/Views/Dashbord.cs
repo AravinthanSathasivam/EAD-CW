@@ -16,15 +16,31 @@ namespace MyPocketbook.Views
         {
             InitializeComponent();
 
-            lblExpTotal.Text = ExpenseView.totalExpense.ToString();
+            //lblExpTotal.Text = ExpenseView.totalExpense.ToString();
             lblIncomeTotal.Text = IncomeView.totalIncome.ToString();
+            MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+            var result = database.Expenses.GroupBy(o => o.UserId.Equals(LoginView.forwardUserID)).Select(
+                g => new { Name = g.Key, total = g.Sum(i => i.Amount) });
+
+
+            foreach (var group in result)
+            {               
+                if(group.Name == true)
+                {
+                    Console.WriteLine("Name = {0} Totalcost={1}", group.Name, group.total);
+                    lblExpTotal.Text = group.total.ToString();
+                }
+            }
         }
 
         private void Dashbord_Load(object sender, EventArgs e)
         {
             MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+            var display = from dis in database.Expenses
+                          where dis.UserId.Equals(LoginView.forwardUserID)
+                          select dis;
 
-            if (!database.Incomes.Any() || !database.Expenses.Any())
+            if (!database.Incomes.Any() || !display.Any())
             {
                 lblNoData01.Visible = true;
                 lblNoData02.Visible = true;
@@ -32,7 +48,6 @@ namespace MyPocketbook.Views
                 lblNoData04.Visible = true;
                 picChart.Visible = false;
                 picGraph.Visible = false;
-
             }
             else
             {

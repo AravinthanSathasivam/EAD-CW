@@ -19,8 +19,13 @@ namespace MyPocketbook.Views
             {
                 lblPrediction.Text = (ExpenseView.totalExpense / 12).ToString();
             }
-
             
+        }
+
+        private void predictExpense(object sender, EventArgs e)
+        {
+            DateTime date1 = dateTimePicker1.Value;
+            DateTime date2 = dateTimePicker2.Value;
         }
     }
 }

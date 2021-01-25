@@ -33,6 +33,7 @@ namespace MyPocketbook.Views
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.btnOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPrediction
@@ -73,12 +74,23 @@ namespace MyPocketbook.Views
             this.dateTimePicker2.Size = new System.Drawing.Size(181, 38);
             this.dateTimePicker2.TabIndex = 3;
             // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(573, 119);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(107, 37);
+            this.btnOK.TabIndex = 4;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.predictExpense);
+            // 
             // ExpensePrediction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(717, 450);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
@@ -99,5 +111,6 @@ namespace MyPocketbook.Views
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button btnOK;
     }
 }
