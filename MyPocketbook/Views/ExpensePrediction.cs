@@ -15,17 +15,25 @@ namespace MyPocketbook.Views
         public ExpensePrediction()
         {
             InitializeComponent();
-            if (ExpenseView.totalExpense != 0)
-            {
-                lblPrediction.Text = (ExpenseView.totalExpense / 12).ToString();
-            }
-            
         }
 
         private void predictExpense(object sender, EventArgs e)
         {
             DateTime date1 = dateTimePicker1.Value;
             DateTime date2 = dateTimePicker2.Value;
+
+            TimeSpan difference = date2 - date1;
+            int days = difference.Days;
+            if (days > 0)
+            {
+                lblPrediction.Text = days.ToString();
+            }
+            else
+            {
+                lblPrediction.Text = " Invalid Entry, Please enter valid range";
+            }
+            
+
         }
     }
 }
