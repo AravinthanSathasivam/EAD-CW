@@ -12,35 +12,57 @@ namespace MyPocketbook.Views
 {
     public partial class Dashbord : Form
     {
+        public static double forwardExpenseTotal = 1;
         public Dashbord()
         {
             InitializeComponent();
 
             //lblExpTotal.Text = ExpenseView.totalExpense.ToString();
-            lblIncomeTotal.Text = IncomeView.totalIncome.ToString();
+            //lblIncomeTotal.Text = IncomeView.totalIncome.ToString();
+            
+            //Add total Expense for particular user
             MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
-            var result = database.Expenses.GroupBy(o => o.UserId.Equals(LoginView.forwardUserID)).Select(
-                g => new { Name = g.Key, total = g.Sum(i => i.Amount) });
+            var value1 = database.Expenses.GroupBy(o => o.UserId.Equals(LoginView.forwardUserID)).Select(
+                g => new { ID = g.Key, total = g.Sum(i => i.Amount) });
 
-
-            foreach (var group in result)
+            foreach (var exp in value1)
             {               
-                if(group.Name == true)
+                if(exp.ID == true)
                 {
-                    Console.WriteLine("Name = {0} Totalcost={1}", group.Name, group.total);
-                    lblExpTotal.Text = group.total.ToString();
+                    Console.WriteLine("ID = {0} TotalExpense = {1}", exp.ID, exp.total);
+                    lblExpTotal.Text = exp.total.ToString();
+                    forwardExpenseTotal = exp.total;
                 }
             }
+
+            //Add total Income for particular user
+            var value2 = database.Incomes.GroupBy(o => o.UserId.Equals(LoginView.forwardUserID)).Select(
+                g => new { ID = g.Key, total = g.Sum(i => i.Amount) });
+
+            foreach (var inc in value2)
+            {
+                if (inc.ID == true)
+                {
+                    Console.WriteLine("ID = {0} TotalExpense = {1}", inc.ID, inc.total);
+                    lblIncomeTotal.Text = inc.total.ToString();
+                }
+            }
+
         }
 
         private void Dashbord_Load(object sender, EventArgs e)
         {
+            // Check database
             MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
-            var display = from dis in database.Expenses
+            var display1 = from dis in database.Expenses
                           where dis.UserId.Equals(LoginView.forwardUserID)
                           select dis;
 
-            if (!database.Incomes.Any() || !display.Any())
+            var display2 = from dis in database.Incomes
+                           where dis.UserId.Equals(LoginView.forwardUserID)
+                           select dis;
+
+            if (!display2.Any() && !display1.Any())
             {
                 lblNoData01.Visible = true;
                 lblNoData02.Visible = true;

@@ -17,19 +17,33 @@ namespace MyPocketbook.Views
         Expense dataExpense = new Expense();
         User userdata = new User();
         TempData temp = new TempData();
+
+        public int rowSample = 0;
         public MultipleExpenseEntryView()
         {
             InitializeComponent();
-            this.btnAddExpense.Enabled = false;
+            //this.btnAddExpense.Enabled = false;
         }
 
-        MultiDataEntryRow[] arrEntryRow;
-        
+        MultiDataEntryRow[] arrEntryRow;       
         private void AddExpanseRow(object sender, EventArgs e)
         {
             int numRows = Convert.ToInt32(this.txtEntryNum.Value);
-            arrEntryRow = new MultiDataEntryRow[numRows];
+            rowSample = numRows;
 
+            //Remove 
+            if (this.arrEntryRow != null)
+            {
+                for (int i = 0; i < this.arrEntryRow.Length; i++)
+                {
+                    this.Controls.Remove(this.arrEntryRow[i]);
+                }
+            }
+
+            // Create
+            this.arrEntryRow = new MultiDataEntryRow[numRows];
+            rowSample = numRows;
+            
             for (int i = 0; i < numRows; i++)
             {
                 this.arrEntryRow[i] = new MultiDataEntryRow();
@@ -37,21 +51,20 @@ namespace MyPocketbook.Views
                 this.Controls.Add(this.arrEntryRow[i]);
                 Console.WriteLine(this.arrEntryRow[i].GetExpenseCategort());
                 Console.WriteLine(this.arrEntryRow[i].GetDate());
-        }
+            }
+
+
         }
 
 
         private async void AddExpenseData(object sender, EventArgs e)
         {
             this.btnAddExpense.Enabled = false;
-            int numRows = Convert.ToInt32(this.txtEntryNum.Value);
-            arrEntryRow = new MultiDataEntryRow[numRows];
-            // Storing data to  temporary database
-
+            int numRows = rowSample;
             Console.WriteLine(numRows);
             try
             {
-                for (int i = 1; i < numRows; i++)
+                for (int i = 0; i < this.arrEntryRow.Length; i++)
                 {
                     //Write data into file
                     temp.Expense.AddExpenseRow(this.arrEntryRow[i].GetExpenseName(),
@@ -69,7 +82,7 @@ namespace MyPocketbook.Views
                     dataExpense.Description = this.arrEntryRow[i].GetDescrption();
                 }
 
-                temp.WriteXml(@"D:\Database\TempData.xml");
+                temp.WriteXml(@"D:\Database\testData.xml");
 
                 // Using thread - Task
                 var taskStoreDB = await Task.Run(
@@ -91,8 +104,15 @@ namespace MyPocketbook.Views
 
                 MessageBox.Show("Error!!! Failed to Store to Database");
             }
-            
-            
+            //Clear Table
+            if (this.arrEntryRow != null)
+            {
+                for (int i = 0; i < this.arrEntryRow.Length; i++)
+                {
+                    this.Controls.Remove(this.arrEntryRow[i]);
+                }
+            }
+
         }
     }
 }

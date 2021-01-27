@@ -74,9 +74,7 @@ namespace MyPocketbook.Views
                 {
 
                     MessageBox.Show("Error Deleting data!! Try again Later");
-                }
-
-               
+                }              
             }
         }
 

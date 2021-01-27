@@ -44,9 +44,11 @@ namespace MyPocketbook.Views
    
         }
 
-        private void LoginApp(object sender, EventArgs e)
+        private async void LoginApp(object sender, EventArgs e)
         {
             MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+           
+            // User Validation
             if (database != null)
             {
                 var validateUser = database.Users.FirstOrDefault(u => u.UserName == txtUserID.Text);
@@ -61,8 +63,16 @@ namespace MyPocketbook.Views
                         MessageBox.Show(" Login Successful!! \n Welcome " + forwardFirstName);
                         //Storing user name and password in a file
                         remember.Clear();
-                        remember.Login.AddLoginRow(this.txtUserID.Text, this.txtPassword.Text);
-                        remember.WriteXml(@"D:\UserTdTemp.xml");
+                        // Using thread - Task
+                        var taskWriteFile = await Task.Run(
+                            () =>
+                            {
+                                remember.Login.AddLoginRow(this.txtUserID.Text, this.txtPassword.Text);
+                                remember.WriteXml(@"D:\UserTdTemp.xml");
+                                return true;
+                            }
+                            );
+                        
                         this.Hide();
                         MainView main = new MainView();
                         main.ShowDialog();
@@ -89,7 +99,7 @@ namespace MyPocketbook.Views
                 Console.WriteLine( "Issues");         
             } 
         }
-         //PlaceHolder text
+         //PlaceHolder text UI 
         private void txtUserID_Enter(object sender, EventArgs e)
         {
             if (txtUserID.Text == "User Name")

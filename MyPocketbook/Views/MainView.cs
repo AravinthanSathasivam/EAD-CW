@@ -131,8 +131,6 @@ namespace MyPocketbook.Views
             {
                 ReportView report = new ReportView();
                 report.ShowDialog();
-                Console.WriteLine(!database.Incomes.Any());
-                Console.WriteLine(!database.Expenses.Any());
             }
             
 
@@ -140,8 +138,22 @@ namespace MyPocketbook.Views
 
         private void OpenPrediction(object sender, EventArgs e)
         {
-            ExpensePrediction prediction = new ExpensePrediction();
-            prediction.ShowDialog();
+            MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
+            var display = from dis in database.Expenses where dis.UserId.
+                          Equals(LoginView.forwardUserID) select dis;
+            if (!display.Any())
+            {
+                // table is Empty
+                MessageBox.Show("Please Enter Expense Data");
+
+            }
+            else
+            {
+                // View Prediction Window
+                ExpensePrediction prediction = new ExpensePrediction();
+                prediction.ShowDialog();
+            }
+            
 
             //Nav-Button UI 
             pnlNavbar.Height = btnPredict.Height;
@@ -178,6 +190,8 @@ namespace MyPocketbook.Views
             pnlNavbar.Left = btnLogout.Left;
             btnLogout.BackColor = Color.FromArgb(255, 255, 255);
         }
+
+        //Nav-Bar UI styles
 
         private void btnDashboard_Leave(object sender, EventArgs e)
         {

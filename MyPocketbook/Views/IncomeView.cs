@@ -54,10 +54,14 @@ namespace MyPocketbook.Views
         }
 
         private async void AddIncome(object sender, EventArgs e)
-        {
+        {   
+            // Vadlidation for input fields
+            var validIncAmount = double.Parse(this.txtIncAmount.Text,
+                    System.Globalization.CultureInfo.InvariantCulture);
             if (String.IsNullOrEmpty(this.txtIncName.Text) ||
                String.IsNullOrEmpty(this.txtIncAmount.Text) ||
-               String.IsNullOrEmpty(this.txtIncDescription.Text))
+               String.IsNullOrEmpty(this.txtIncDescription.Text) ||
+               validIncAmount <= 0)
 
             {
                 MessageBox.Show("Please Fill all the text fields", "Info",
@@ -96,10 +100,14 @@ namespace MyPocketbook.Views
                     MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
                     Income income = new Income();
                     User userdata = new User();
+                    // parse string into double
+                    var incomeAmount = double.Parse(this.txtIncAmount.Text,
+                    System.Globalization.CultureInfo.InvariantCulture);
+                    // Rounding value to 2 decimals
+                    incomeAmount = Math.Round(incomeAmount, 2);
                     income.UserId = LoginView.forwardUserID;
                     income.Name = this.txtIncName.Text.Trim();
-                    income.Amount = double.Parse(this.txtIncAmount.Text,
-                    System.Globalization.CultureInfo.InvariantCulture);
+                    income.Amount = incomeAmount;
                     income.Category = this.txtIncCatagory.Text.Trim();
                     income.Date = this.txtIncDate.Value;
                     income.Descrption = this.txtIncDescription.Text.Trim();

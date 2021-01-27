@@ -28,12 +28,16 @@ namespace MyPocketbook.Views
 
         private async void AddExpense(object sender, EventArgs e)
         {
+            var validExpAmount = double.Parse(this.txtExpAmount.Text,
+                System.Globalization.CultureInfo.InvariantCulture);
             if (String.IsNullOrEmpty(this.txtExpName.Text) ||
                String.IsNullOrEmpty(this.txtExpAmount.Text) ||
-               String.IsNullOrEmpty(this.txtExpDescription.Text))
+               String.IsNullOrEmpty(this.txtExpDescription.Text) ||
+                 validExpAmount <= 0
+               )
 
             {
-                MessageBox.Show("Please Fill all the text fields", "Info",
+                MessageBox.Show("Please Fill all the text fields \n& Enter Valid data", "Info",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -72,10 +76,14 @@ namespace MyPocketbook.Views
                     MyPocketbookModelContainer1 database = new MyPocketbookModelContainer1();
                     Expense dataExpense = new Expense();
                     User userdata = new User();
+                    // parse string into double
+                    var expenseAmount = double.Parse(this.txtExpAmount.Text,
+                        System.Globalization.CultureInfo.InvariantCulture);
+                    // Rounding value to 2 decimals
+                    expenseAmount = Math.Round(expenseAmount, 2);
                     dataExpense.UserId = LoginView.forwardUserID;
                     dataExpense.Name = this.txtExpName.Text.Trim();
-                    dataExpense.Amount = double.Parse(this.txtExpAmount.Text,
-                        System.Globalization.CultureInfo.InvariantCulture);
+                    dataExpense.Amount = expenseAmount;
                     dataExpense.Category = this.txtExpCategory.Text.Trim();
                     dataExpense.Date = this.txtExpDate.Value;
                     dataExpense.Description = this.txtExpDescription.Text.Trim();
@@ -169,12 +177,13 @@ namespace MyPocketbook.Views
 
             //Validate Digit input field
 
-            // Validate extra dot(.)
+            // Validate extra dot(.) | only allow one decimal
             if (input == 46 && txtExpAmount.Text.IndexOf('.') != -1)
             {
                 e.Handled = true;
                 return;
             }
+
 
             //Validate ( 8-Backspace 46-Shift Out )
             if (!Char.IsDigit(input) && input != 8 && input != 46)
