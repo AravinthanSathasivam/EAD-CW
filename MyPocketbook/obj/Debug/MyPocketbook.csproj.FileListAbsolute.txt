@@ -84,3 +84,4 @@ D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\RdlCompile.compiled
 D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.Controls.MultiDataEntryRow.resources
 D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.Views.ExpensePrediction.resources
 D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.Views.SettingsView.resources
+D:\EAD\CW-02-Submission\MyPocketbook\MyPocketbook\obj\Debug\MyPocketbook.csprojAssemblyReference.cache

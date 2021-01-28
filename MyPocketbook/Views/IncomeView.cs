@@ -56,12 +56,10 @@ namespace MyPocketbook.Views
         private async void AddIncome(object sender, EventArgs e)
         {   
             // Vadlidation for input fields
-            var validIncAmount = double.Parse(this.txtIncAmount.Text,
-                    System.Globalization.CultureInfo.InvariantCulture);
+           
             if (String.IsNullOrEmpty(this.txtIncName.Text) ||
                String.IsNullOrEmpty(this.txtIncAmount.Text) ||
-               String.IsNullOrEmpty(this.txtIncDescription.Text) ||
-               validIncAmount <= 0)
+               String.IsNullOrEmpty(this.txtIncDescription.Text))
 
             {
                 MessageBox.Show("Please Fill all the text fields", "Info",

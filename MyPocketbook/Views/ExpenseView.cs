@@ -28,12 +28,10 @@ namespace MyPocketbook.Views
 
         private async void AddExpense(object sender, EventArgs e)
         {
-            var validExpAmount = double.Parse(this.txtExpAmount.Text,
-                System.Globalization.CultureInfo.InvariantCulture);
+
             if (String.IsNullOrEmpty(this.txtExpName.Text) ||
                String.IsNullOrEmpty(this.txtExpAmount.Text) ||
-               String.IsNullOrEmpty(this.txtExpDescription.Text) ||
-                 validExpAmount <= 0
+               String.IsNullOrEmpty(this.txtExpDescription.Text)               
                )
 
             {
