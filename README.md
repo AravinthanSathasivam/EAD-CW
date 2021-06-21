@@ -9,7 +9,7 @@
 <h3>Add Income</h3>
 <img width="500" alt="Home" src="https://user-images.githubusercontent.com/48080574/122777764-f96f1c00-d2c9-11eb-9940-6551ed6cd519.jpg">
 <h3>Edit / Delete Expenses</h3>
-<img width="500" alt="Home" src="https://user-images.githubusercontent.com/48080574/122777818-055ade00-d2ca-11eb-9191-5097ae1c8100.jpgg">
+<img width="500" alt="Home" src="https://user-images.githubusercontent.com/48080574/122777818-055ade00-d2ca-11eb-9191-5097ae1c8100.jpg">
 <h3>Generate Report</h3>
 <img width="500" alt="Home" src="https://user-images.githubusercontent.com/48080574/122777875-14419080-d2ca-11eb-9c9b-be55e925a807.jpg">
 <h3>Expense Prediction</h3>
